@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="description" content="Redes sociales">
+<meta name="keywords" content="TikTok, YouTube, Instagram, Twitch, Discord">
+<meta name="author" content="xiSpark">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xispark.com/">
+<meta property="og:title" content="xiSpark - Redes Sociales">
+<meta property="og:description" content="ola">
+<meta property="og:image" content="https://xispark.com/img/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="XiSpark">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://xispark.com/">
+<meta name="twitter:title" content="XiSpark - Redes Sociales">
+<meta name="twitter:description" content="ola">
+<meta name="twitter:image" content="https://xispark.com/img/twitter-preview.jpg">
+<meta name="application-name" content="xiSpark">
+<meta name="theme-color" content="#121212">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="xiSpark">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xiSpark - Redes Sociales</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+        "@type": "Person",
+        "name": "xiSpark",
+        "url": "https://xispark.com",
+        "image": "https://xispark.com/img/logo.svg",
+        "description": "ola",
+        "sameAs": [
+            "https://www.tiktok.com/@xispark",
+            "https://www.youtube.com/channel/UCYm12nYZ6X7zv1twPTWCE3A",
+            "https://www.instagram.com/xispark.tv",
+            "https://www.twitch.tv/xispark"
+        ]
+    }
+}
+</script>
+</head>
+<body>
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <p>Haz clic para entrar</p>
+    </div>
+</div>
+<div class="music-player" id="musicPlayer">
+    <div class="music-player-inner">
+        <div class="music-info">
+            <div class="song-title" id="songTitle">Memories - One Piece</div>
+            <div class="time-control">
+                <span id="currentTime">0:00</span>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="prevButton" class="control-btn">⏮️</button>
+            <button id="playButton" class="control-btn play-btn">▶️</button>
+            <button id="nextButton" class="control-btn">⏭️</button>
+            <div class="volume-container">
+                <button id="volumeButton" class="control-btn">🔊</button>
+                <div class="volume-slider-container">
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="minimize-btn" id="minimizeButton">—</button>
+    <audio id="audioPlayer" src="sounds/music.ogg"></audio>
+</div>
+<div class="loader">
+    <div class="loader-content">
+        <div class="loader-spinner"></div>
+    </div>
+</div>
+<div class="particles-container" id="particles"></div>
+<div class="container">
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="img/logo.svg" alt="xiSpark Logo" class="logo-image">
+            </div>
+        </div>
+        <h1>XiSpark</h1>
+        <h2>Todas mis redes sociales</h2>
+    </header>
+ <div class="social-grid">
+    <!-- Apartado de Discord -->
+    <div class="social-card discord">
+        <div class="social-icon">
+            <img src="img/discord.png" alt="Discord Logo">
+        </div>
+        <h3>Discord</h3>
+        <a href="https://discord.gg/fA4wMPxaq5" class="btn" target="_blank">Unirse al Discord</a>
+    </div>
+
+    <!-- Apartado de TikTok -->
+    <div class="social-card tiktok">
+        <div class="social-icon">
+            <img src="img/tiktok.png" alt="TikTok Logo">
+        </div>
+        <h3>TikTok</h3>
+        <a href="https://www.tiktok.com/@xispark?_t=ZM-8t8TiJFcrgc&_r=1" class="btn" target="_blank">Seguir en TikTok</a>
+    </div>
+
+    <!-- Apartado de YouTube -->
+    <div class="social-card youtube">
+        <div class="social-icon">
+            <img src="img/youtube.png" alt="YouTube Logo">
+        </div>
+        <h3>YouTube</h3>
+        <a href="https://www.youtube.com/channel/UCYm12nYZ6X7zv1twPTWCE3A" class="btn" target="_blank">Suscribirme</a>
+    </div>
+
+    <!-- Apartado de Instagram -->
+    <div class="social-card instagram">
+        <div class="social-icon">
+            <img src="img/instagram.png" alt="Instagram Logo">
+        </div>
+        <h3>Instagram</h3>
+        <a href="https://www.instagram.com/xispark.tv?igsh=ODI3emN0NDNyMDI4" class="btn" target="_blank">Seguir en Instagram</a>
+    </div>
+
+    <!-- Apartado de Twitch -->
+    <div class="social-card twitch">
+        <div class="social-icon">
+            <img src="img/twitch.png" alt="Twitch Logo">
+        </div>
+        <h3>Twitch</h3>
+        <a href="https://www.twitch.tv/xispark" class="btn" target="_blank">Seguir en Twitch</a>
+    </div>
+</div>
+    <footer>
+        <p>© 2025 XiSpark</p>
+    </footer>
+</div>
+<a href="#" class="back-to-top" id="backToTop">↑</a>
+<script src="js/particles.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+<script src="js/music-player.js"></script>
+</body>
+</html>

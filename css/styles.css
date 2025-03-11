@@ -1,0 +1,629 @@
+:root {
+    --primary: #00b4d8;
+    --secondary: #ff5e78;
+    --dark: #121212;
+    --light: #f5f5f5;
+    --accent: #00e676;
+    --card-bg: rgba(25, 25, 25, 0.8);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+        url('../img/fondo.jpg'),
+        radial-gradient(circle at 10% 20%, rgba(0, 180, 216, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 50%, rgba(255, 94, 120, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(0, 230, 118, 0.1) 0%, transparent 30%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.8);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+}
+
+.logo-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 6s infinite;
+}
+
+.logo-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transform: translateZ(20px);
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+    max-width: 100%;
+    max-height: 100%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateZ(10px);
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards 0.3s;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards 0.5s;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 40px 0;
+    perspective: 1000px;
+}
+
+.social-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(50px);
+    opacity: 0;
+    overflow: hidden;
+}
+
+.card-animated {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.social-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.social-card.tiktok {
+    border-top: 4px solid #fe2c55;
+}
+
+.social-card.youtube {
+    border-top: 4px solid #ff0000;
+}
+
+.social-card.instagram {
+    border-top: 4px solid #e1306c;
+}
+
+.social-card.twitch {
+    border-top: 4px solid #9146FF;
+}
+
+.social-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.social-card.tiktok .social-icon {
+    background: linear-gradient(45deg, #fe2c55, #25f4ee);
+    box-shadow: 0 10px 20px rgba(254, 44, 85, 0.3);
+}
+
+.social-card.youtube .social-icon {
+    background: linear-gradient(45deg, #ff0000, #ff5e00);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.social-card.instagram .social-icon {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3);
+}
+
+.social-card.twitch .social-icon {
+    background: linear-gradient(45deg, #9146FF, #6441a5);
+    box-shadow: 0 10px 20px rgba(145, 70, 255, 0.3);
+}
+
+.social-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--light);
+    font-weight: 600;
+}
+
+.social-card p {
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    transition: all 0.4s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 180, 216, 0.4);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.tiktok .btn {
+    background: linear-gradient(90deg, #fe2c55, #25f4ee);
+    box-shadow: 0 5px 15px rgba(254, 44, 85, 0.3);
+}
+
+.tiktok .btn::before {
+    background: linear-gradient(90deg, #25f4ee, #fe2c55);
+}
+
+.youtube .btn {
+    background: linear-gradient(90deg, #ff0000, #ff5e00);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.youtube .btn::before {
+    background: linear-gradient(90deg, #ff5e00, #ff0000);
+}
+
+.instagram .btn {
+    background: linear-gradient(90deg, #405de6, #e1306c);
+    box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
+}
+
+.instagram .btn::before {
+    background: linear-gradient(90deg, #e1306c, #405de6);
+}
+
+.twitch .btn {
+    background: linear-gradient(90deg, #9146FF, #6441a5);
+    box-shadow: 0 5px 15px rgba(145, 70, 255, 0.3);
+}
+
+.twitch .btn::before {
+    background: linear-gradient(90deg, #6441a5, #9146FF);
+}
+
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 30px 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--secondary);
+    transform: translateY(-5px);
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Reproductor de música flotante */
+.music-player {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(25, 25, 25, 0.9);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    width: 300px;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    transform: translateY(0);
+}
+
+.music-player.minimized {
+    transform: translateY(calc(100% - 50px));
+}
+
+.music-player-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.time-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    height: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.play-btn {
+    font-size: 1.5rem;
+}
+
+.volume-container {
+    position: relative;
+}
+
+.volume-slider-container {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(25, 25, 25, 0.9);
+    border-radius: 10px;
+    padding: 10px 5px;
+    width: 30px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.volume-container:hover .volume-slider-container {
+    opacity: 1;
+    visibility: visible;
+}
+
+#volumeSlider {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    outline: none;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    margin: 40px 0;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+#volumeSlider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: none;
+}
+
+.minimize-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 0.5;
+}
+
+.minimize-btn:hover {
+    color: var(--light);
+}
+
+/* Estilos para la pantalla de precarga */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.preloader-content {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Ocultar el reproductor flotante mientras la pantalla de precarga esté visible */
+.preloader-active .music-player {
+    display: none;
+}
+
+/* Estilo para el apartado de Discord */
+.social-card.discord {
+    border-top: 4px solid #5865F2; /* Color oficial de Discord */
+}
+
+.social-card.discord .social-icon {
+    background: linear-gradient(45deg, #5865F2, #7289DA); /* Gradiente con colores de Discord */
+    box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3); /* Sombra con el color de Discord */
+}
+
+.social-card.discord .btn {
+    background: linear-gradient(90deg, #5865F2, #7289DA); /* Gradiente para el botón */
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3); /* Sombra para el botón */
+}
+
+.social-card.discord .btn::before {
+    background: linear-gradient(90deg, #7289DA, #5865F2); /* Efecto hover para el botón */
+}
